@@ -78,9 +78,6 @@ function updateQuest() {
 }
 
 // Hook into the engine:
-MiniCraft.studentHooks.onNewWorld = updateQuest;
-MiniCraft.studentHooks.onWorldChanged = updateQuest;
-MiniCraft.studentHooks.onLoaded = updateQuest;
 
 // Run once at startup (boot happens after this file loads)
-setTimeout(updateQuest, 0);
+
