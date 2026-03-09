@@ -4,7 +4,7 @@
 // Goal: place at least 5 Gold blocks.
 
 function countBlocks(blockId) {
-  const world = MiniCraft.state.world;
+  const world = MiniCraft.state.playerBuilt;
   let count = 0;
 
   for (const row of world) {
@@ -18,15 +18,24 @@ function countBlocks(blockId) {
   return count;
 }
 
+function makeQuestLine(label, current, goal) {
+  if (current >= goal) {
+    return `✅ ${label} (${current}/${goal})`;
+  } else {
+    return `⬜ ${label} (${current}/${goal})`;
+  }
+}
+
 function updateQuest() {
   const gold = countBlocks(7);
+  const wood = countBlocks(5);
   
-  if (gold >= 5) {
-    MiniCraft.ui.setQuest("Quest: ✅ Gold builder! (5+ Gold blocks)");
-  }
-  else {
-    MiniCraft.ui.setQuest(`Quest: Place 5 Gold blocks (${gold}/5)`);
-  }
+  const quests = [
+    makeQuestLine("Place 3 wood blocks", wood, 3),
+    makeQuestLine("Place 5 gold blocks", gold, 5)
+  ];
+
+  MiniCraft.ui.setQuestList(quests);
 }
 
 // Hook into the engine:
