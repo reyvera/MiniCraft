@@ -98,7 +98,7 @@ Students only need to edit the files inside **`student/`**.
 ### 1. Clone the repository
 
 ```
-git clone https://github.com/YOUR_USERNAME/minicraft-js.git
+git clone https://github.com/reyvera/MiniCraft.git
 ```
 
 Or download the repository as a ZIP file.
